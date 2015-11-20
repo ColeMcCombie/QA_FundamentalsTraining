@@ -32,9 +32,8 @@ public class League {
             currGame.playGame();
             
             /* Practice 12-1. Add a break command here */
-            
             /* Practice 12-1. Comment out the line below */
-            System.out.println(currGame.getDescription());
+           System.out.println(currGame.getDescription());
         }
         
         theLeague.showBestTeam(theTeams);

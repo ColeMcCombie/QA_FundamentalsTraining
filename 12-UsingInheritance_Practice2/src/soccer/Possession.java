@@ -3,17 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package soccer;
 
 /**
  *
- * @author Administrator
+ * @author ksomervi
  */
-public class Goal extends GameEvent 
-{
+public class Possession extends GameEvent {
     
-        public String toString(){
-        return "Goal scored";
-    }
 }

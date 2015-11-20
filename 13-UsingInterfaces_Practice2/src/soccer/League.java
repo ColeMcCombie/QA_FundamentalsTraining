@@ -8,6 +8,7 @@ package soccer;
 import java.time.LocalDateTime;
 import java.time.Period;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.StringTokenizer;
 import utility.PlayerDatabase;
 
@@ -72,9 +73,12 @@ public class League {
         return (Game[]) theGames.toArray(new Game[1]);
     }
     
-    public void showBestTeam(Team[] theTeams) {
+    public void showBestTeam(Team[] theTeams) 
+    {
         
         /* Practice 13-2. Add statement to sort theTeams here */
+        Arrays.sort(theTeams);
+        
         Team currBestTeam = theTeams[0];  
         System.out.println("\nTeam Points");       
            
@@ -82,16 +86,8 @@ public class League {
             System.out.println(currTeam.getTeamName() + " : " + currTeam.getPointsTotal() + " : "
                      + currTeam.getGoalsTotal());
             
-        /* Practice 13-2. Remove all conditional code starting here */    
-            currBestTeam = currTeam.getPointsTotal() > currBestTeam.getPointsTotal()?currTeam:currBestTeam;
-            if (currTeam.getPointsTotal() > currBestTeam.getPointsTotal()){
-                currBestTeam = currTeam;
-            } else if (currTeam.getPointsTotal() == currBestTeam.getPointsTotal()){
-                if (currTeam.getGoalsTotal() > currBestTeam.getGoalsTotal()){
-                currBestTeam = currTeam;
-                }
-            }
-        /* Practice 13-2. Remove all conditional code between this point and above comment */
+      
+         
         }
         
         System.out.println("Winner of the League is " + currBestTeam.getTeamName());

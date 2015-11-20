@@ -8,9 +8,10 @@ package soccer;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import utility.GameUtils;
+import java.util.ArrayList;
 
 /**
+ * 
  *
  * @author Administrator
  */
@@ -26,17 +27,25 @@ public class Game {
         this.awayTeam = awayTeam;
         this.theDateTime = theDateTime;
     }
-    
-    public void playGame(int maxGoals) {       
-        int numberOfGoals = (int)(Math.random() * maxGoals + 1);
-        Goal[] theGoals = new Goal[numberOfGoals];
-        this.setGoals(theGoals);
-        GameUtils.addGameGoals(this);        
-    }
-    
+      
     public void playGame() {
-        /* Practice 12-1. Remove the following line */
-        playGame(6);
+        ArrayList <Goal> eventList = new ArrayList();
+        Goal currEvent;
+        
+        for (int i = 1; i <= 90; i++)
+        {
+            if (Math.random() > .95)
+            {
+            //System.out.println(i);
+                currEvent = new Goal();
+                currEvent.setTheTeam(Math.random() > 0.5?homeTeam:awayTeam);
+                currEvent.setThePlayer(currEvent.getTheTeam().getPlayerArray()[(int) (Math.random()*currEvent.getTheTeam().getPlayerArray().length)]);
+                currEvent.setTheTime(i);
+                eventList.add(currEvent);
+                }
+            this.goals = new Goal[eventList.size()];
+            eventList.toArray(goals);
+        }
     }
     
     public String getDescription() {
